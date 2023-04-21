@@ -1,0 +1,510 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_token",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_emblem",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_implements",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "pendingId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "proposalAddress",
+        "type": "address"
+      }
+    ],
+    "name": "AcceptedProposal",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "pendingId",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "requireSigner",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "requireFunded",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "deadline",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "proposer",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "proposalName",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "proposalIpfsData",
+            "type": "string"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct IBergerakProposal.Proposal",
+        "name": "proposal",
+        "type": "tuple"
+      }
+    ],
+    "name": "CreatedProposal",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "pendingId",
+        "type": "uint256"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "requireSigner",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "requireFunded",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "deadline",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "proposer",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "proposalName",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "proposalIpfsData",
+            "type": "string"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct IBergerakProposal.Proposal",
+        "name": "proposal",
+        "type": "tuple"
+      }
+    ],
+    "name": "EditedProposal",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "pendingId",
+        "type": "uint256"
+      }
+    ],
+    "name": "RejectedProposal",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "pendingId",
+        "type": "uint256"
+      }
+    ],
+    "name": "acceptProposal",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "configClaim",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "arg1",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint8",
+        "name": "arg2",
+        "type": "uint8"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "requireSigner",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "requireFunded",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "whitelist",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "proposalName",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "proposalIpfsData",
+        "type": "string"
+      }
+    ],
+    "name": "createProposal",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "pendingId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "requireSigner",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "requireFunded",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "deadline",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "whitelist",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "proposalName",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "proposalIpfsData",
+        "type": "string"
+      }
+    ],
+    "name": "editProposal",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "emblem",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "implementations",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "pendingProposal",
+    "outputs": [
+      {
+        "internalType": "enum BergerakProposalFactory.Status",
+        "name": "proposalStatus",
+        "type": "uint8"
+      },
+      {
+        "internalType": "address",
+        "name": "whitelist",
+        "type": "address"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "requireSigner",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "requireFunded",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "deadline",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "proposer",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "proposalName",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "proposalIpfsData",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct IBergerakProposal.Proposal",
+        "name": "proposal",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "proposal",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "pendingId",
+        "type": "uint256"
+      }
+    ],
+    "name": "rejectProposal",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint8",
+            "name": "arg1",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "arg2",
+            "type": "uint8"
+          }
+        ],
+        "internalType": "struct IBergerakProposal.ClaimPercentage[]",
+        "name": "data",
+        "type": "tuple[]"
+      }
+    ],
+    "name": "setConfigClaim",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "token",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalPendingProposal",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalProposal",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

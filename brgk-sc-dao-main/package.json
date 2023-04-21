@@ -1,0 +1,53 @@
+{
+  "name": "smartcontract",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.0",
+    "@openzeppelin/contracts-upgradeable": "^4.8.0",
+    "dotenv": "^16.0.3",
+    "hardhat": "^2.12.5",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.3.9",
+    "prompt-sync": "^4.2.0",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@ethersproject/abi": "^5.4.7",
+    "@ethersproject/providers": "^5.4.7",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@nomiclabs/hardhat-etherscan": "^3.0.0",
+    "@typechain/ethers-v5": "^10.1.0",
+    "@typechain/hardhat": "^6.1.2",
+    "chai": "^4.2.0",
+    "ethers": "^5.4.7",
+    "hardhat-gas-reporter": "^1.0.8",
+    "solidity-coverage": "^0.8.0",
+    "typechain": "^8.1.0"
+  },
+  "scripts": {
+    "local": "npx hardhat node",
+    "test": "npx hardhat test",
+    "test:gas": "GAS_REPORT=true npx hardhat test",
+    "compile": "npx rimraf artifacts cache && npx hardhat compile",
+    "deploy:token:local": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-token.js --network localhost",
+    "deploy:emblem:local": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-emblem.js --network localhost",
+    "deploy:whitelist:local": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-whitelist.js --network localhost",
+    "deploy:masswallet:local": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-masswallet.js --network localhost",
+    "deploy:proposal:local": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-proposal.js --network localhost",
+    "deploy:token:mumbai": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-token.js --network mumbai",
+    "deploy:emblem:mumbai": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-emblem.js --network mumbai",
+    "deploy:whitelist:mumbai": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-whitelist.js --network mumbai",
+    "deploy:masswallet:mumbai": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-masswallet.js --network mumbai",
+    "deploy:proposal:mumbai": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-proposal.js --network mumbai",
+    "deploy:token:polygon": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-token.js --network polygon",
+    "deploy:emblem:polygon": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-emblem.js --network polygon",
+    "deploy:whitelist:polygon": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-whitelist.js --network polygon",
+    "deploy:masswallet:polygon": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-masswallet.js --network polygon",
+    "deploy:proposal:polygon": "npx rimraf artifacts cache && npx hardhat run scripts/deploy-proposal.js --network polygon"
+  }
+}
